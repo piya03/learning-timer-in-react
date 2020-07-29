@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
+.App{
+  background: aliceblue;
+  max-width: 600px;
+  margin: auto;
+  padding: 10px 0px 50px 0px;
+
+}
+.heading{
+  display: flex;
+  justify-content: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.timer{
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.hour, .seconds, .minutes{
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: red;
+}
+.hour div , .seconds div , .minutes div{ 
+display: flex;
+margin-bottom: 10px;
+}
+.hour div div, .seconds div div, .minutes div div{
+  background: #F6EAED;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 0px 5px;
+  font-size: 20px;
+  color: red;
+}
+.dot{
+  font-size: 30px;
+  font-weight: 500;
+  color: red;
+  padding: 0px 5px;
+  position: relative;
+  top: -22px;
+}
+.btn{
+  background: #1bacb8;
+  padding: 10px;
+  border-radius: 30px;
+  outline: none;
+  border: navajowhite;
+  font-size: 18px;
+  box-shadow: 0px 0px 1px;
+  cursor: pointer;
   color: white;
+  font-weight: 500;
+  width: 100px;
+  margin-right: 10px;
 }
-
-.App-link {
-  color: #61dafb;
+.btn:hover{
+  box-shadow: 0px 0px 5px black;
+  color: black;
 }
+.btn_container{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
