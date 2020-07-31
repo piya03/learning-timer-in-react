@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
-function CommonButton({ value, onClick }) {
+function CommonButton({ value, onClick, btnStyle = {} }) {
   return (
     <div>
-      <button className="btn" onClick={onClick}>
+      <button style={btnStyle} className="btn" onClick={onClick}>
         {value}
       </button>
     </div>
