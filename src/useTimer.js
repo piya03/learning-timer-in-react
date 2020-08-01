@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 function useTimer({ initialval = null, startTrue = false }) {
   const [noOfSecond, setNoSeconds] = useState(initialval);
+  console.log("useTimer -> noOfSecond", noOfSecond);
   const [start, setStart] = useState(startTrue);
-  console.log("useTimer -> start", start);
+  // console.log("useTimer -> start", start);
 
   let hours = Math.floor(noOfSecond / (60 * 60));
   let secondsLeft = noOfSecond % (60 * 60);
@@ -12,9 +13,12 @@ function useTimer({ initialval = null, startTrue = false }) {
 
   useEffect(() => {
     let runTime;
-
+    if (noOfSecond === 0) {
+      alert("Time Up");
+      return;
+    }
     runTime = setTimeout(() => {
-      if (start) {
+      if (start && noOfSecond) {
         setNoSeconds((pre) => pre - 1);
       }
     }, 1000);
@@ -23,14 +27,20 @@ function useTimer({ initialval = null, startTrue = false }) {
   }, [noOfSecond, start]);
 
   function startFun() {
-    setNoSeconds(48 * 60 * 60);
+    setNoSeconds(initialval);
+    if (noOfSecond === null) return;
     setStart(true);
   }
   function stopFun() {
-    setStart(false);
+    if (noOfSecond == null) {
+      setNoSeconds(initialval);
+    }
+    if (noOfSecond === 0) return;
+    setStart(!start);
   }
   function resetFun() {
     setNoSeconds(null);
+    setStart(false);
   }
   return {
     hours,

@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import CommonButton from "./CommonButton";
 import useTimer from "./useTimer";
+import InputBox from "./InputBox";
 
 function Timer() {
+  const [inputVal, setInputVal] = useState("");
+
   const { hours, minutes, seconds, startFun, stopFun, resetFun } = useTimer({
-    initialval: 60 * 60 * 48,
+    initialval: inputVal,
   });
   let [active, setActive] = useState("");
   let leftHour = hours < 10 ? 0 : hours.toString().split("")[0];
@@ -17,6 +20,7 @@ function Timer() {
 
   return (
     <>
+      <InputBox inputVal={inputVal} setInputVal={setInputVal} />
       <div className="timer">
         <div className="hour">
           <div>
@@ -61,7 +65,7 @@ function Timer() {
             background: active === "Stop" ? "green" : "",
             boxShadow: active === "Stop" ? "0px 0px 5px #9c8383" : "",
           }}
-          value="Stop"
+          value="Play/Pause"
           onClick={() => {
             setActive("Stop");
             stopFun();
