@@ -4,7 +4,7 @@ function useTimer({ initialval = null, startTrue = false }) {
   const [noOfSecond, setNoSeconds] = useState(initialval);
   console.log("useTimer -> noOfSecond", noOfSecond);
   const [start, setStart] = useState(startTrue);
-  // console.log("useTimer -> start", start);
+  console.log("useTimer -> start", start);
 
   let hours = Math.floor(noOfSecond / (60 * 60));
   let secondsLeft = noOfSecond % (60 * 60);
@@ -28,8 +28,8 @@ function useTimer({ initialval = null, startTrue = false }) {
 
   function startFun() {
     setNoSeconds(initialval);
-    if (noOfSecond === null) return;
     setStart(true);
+    if (noOfSecond === null) return;
   }
   function stopFun() {
     if (noOfSecond == null) {
